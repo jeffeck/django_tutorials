@@ -1,0 +1,115 @@
+Development Environment Setup:
+
+VS Code - Look into settings and options
+
+GitHub / GitLab
+
+Django
+- Implement best practices into skeleton
+- Create git repo for rapid startup
+
+
+
+1. git clone <repo>
+2. django-admin startproject <project_name>
+3. manage.py startapp <app_name>
+
+4. Create View
+	from django.http import HttpResponse
+	return HttpResponse("<h1>You got the test page</h1>")
+
+5. Add URLconf
+	from <app_name> import views as <app_name>_views
+
+6. Start the server
+	python manage.py runserver <port>
+
+7. Make a model
+	class <Model>(models.Model):
+		<var_name> = models.IntegerField(default=0)
+
+8. Register app with project
+	<app_name>.apps.<app_name>Config
+
+9. Migrate
+
+10. Interact through shell 
+	python manage.py shell 
+	from <app_name>.models import <Module_1>, <Model_2>
+	<var> = <Model_Name>(<var_name>=<value>)
+	<var>.save()
+	<var>.id
+	<var>.<var_name> # assignable / mutable
+	<Model>.objects.all()
+
+11. Create superuser
+	python manage.py createsuperuser 
+
+12. Add <app_name> modifiable through /admin
+	<app_name>/admin.py
+		from .models import <Model_name>
+		admin.site.register(<Model_name>)
+
+-- Part 3 --
+
+13. Add more views
+	detail
+	results 
+	vote 
+
+14. Register polls/urls.py with main urls file
+
+15. Make a template
+	<app_name>/templates/<app_name>/index.html
+
+-- Part 4 -- 
+
+16. Make a form
+	Use template for crsf protection
+
+17. Use generic views
+	from django.views import generic
+
+
+-- Part 5 --
+
+18. Automated testing
+	/<app_name>/test.py
+	Make class for <model>
+	Write tests in class
+	python manage.py test <app_name>
+
+	Write tests before code
+	Write code to fit the tests
+	Write a TestClass for each model and view
+	A separate test method for each set of conditions
+	Descriptive test method names 
+
+	Look into Selenium for HTML and js testing with Django
+
+-- Part 6 --
+
+19. Create static folder
+	<app_name>/static/<app_name>/<style_sheet>.css
+
+20. Import into template
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+	
+	Restart the server
+
+21. Images
+	<app_name>/static/<app_name>/images/<image_name>.<extension>
+
+-- Part 7 --
+
+22. Customize the admin site
+- see code and documentation
+
+23. Add templates folder to project space
+
+24. Register templates with app in settings.py
+
+25. Customize admin templates
+Copy source from: django/contrib/admin/templates/base.html
+python -c "import django; print(django.__path__)"	
