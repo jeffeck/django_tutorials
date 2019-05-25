@@ -18,6 +18,7 @@ from django.urls import path, include
 from polls import views as polls_views
 
 urlpatterns = [
-    path('', polls_views.home), 
+    path('', polls_views.home),
+    path('polls/', include('polls.urls')), 
     path('admin/', admin.site.urls),
 ]
